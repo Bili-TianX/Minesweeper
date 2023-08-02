@@ -6,6 +6,8 @@ const Difficulty Difficulty::MEDIUM{16, 16, 40};
 
 const Difficulty Difficulty::EXPERT{30, 16, 99};
 
+const Difficulty Difficulty::DEFAULT{EASY};
+
 auto Difficulty::contains(int x, int y) const -> bool {
   return 0 <= x && x < width && 0 <= y && y < height;
 }

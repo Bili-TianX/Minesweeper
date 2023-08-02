@@ -6,7 +6,7 @@ class MainWindow : public QWidget {
   Q_OBJECT
 
  public:
-  explicit MainWindow(Difficulty difficulty = Difficulty::EASY);
+  explicit MainWindow(Difficulty difficulty);
 
  private:
   QTimer timer{this};

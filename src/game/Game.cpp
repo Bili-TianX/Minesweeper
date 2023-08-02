@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include "../core/Options.h"
+
 int opened_block_count = 0;
 
 Game::Game(Difficulty difficulty)
@@ -118,7 +120,7 @@ void Game::leftClick(int x, int y) {
   if (data[y][x] == BlockType::MINE) {
     revealMines();
     view[y][x] = BlockType::EXPLODED_MINE;
-    lightbulb_explosion.play();
+    PLAY_SOUND(lightbulb_explosion);
     changeStatus(GameStatus::LOSE);
   } else {  // data[y][x] is a number
     opened_block_count = 0;
@@ -144,7 +146,7 @@ void Game::middleClick(int x, int y, bool press) {
     if (countBlocksAround(x, y, [=](auto x, auto y) {
           return view[y][x] == BlockType::CLOSED;
         }) > 0) {
-      button_2.play();
+      PLAY_SOUND(button_2);
       return;
     }
   }
@@ -154,7 +156,7 @@ void Game::middleClick(int x, int y, bool press) {
   }
 
   if (!isPositiveNumberBlock(view[y][x])) {
-    incorrect_quick_opening.play();
+    PLAY_SOUND(incorrect_quick_opening);
     return;
   }
 
@@ -162,7 +164,7 @@ void Game::middleClick(int x, int y, bool press) {
       x, y, [=](auto x, auto y) { return view[y][x] == BlockType::FLAG; });
 
   if (static_cast<BlockType>(flag_count) != view[y][x]) {
-    incorrect_quick_opening.play();
+    PLAY_SOUND(incorrect_quick_opening);
     return;
   }
 
@@ -178,7 +180,7 @@ void Game::middleClick(int x, int y, bool press) {
     }
   }
   if (opened_block_count == 0) {
-    incorrect_quick_opening.play();
+    PLAY_SOUND(incorrect_quick_opening);
   } else {
     postDfs();
   }
@@ -190,17 +192,17 @@ void Game::rightClick(int x, int y) {
   switch (block) {
     case BlockType::CLOSED:
       block = BlockType::FLAG;
-      setting_flag.play();
+      PLAY_SOUND(setting_flag);
       --remaining_mines;
       break;
     case BlockType::FLAG:
       block = BlockType::QUESTION;
-      setting_question.play();
+      PLAY_SOUND(setting_question);
       ++remaining_mines;
       break;
     case BlockType::QUESTION:
       block = BlockType::CLOSED;
-      removing_question.play();
+      PLAY_SOUND(removing_question);
       break;
     default:
       break;
@@ -231,7 +233,7 @@ void Game::dfs(int x, int y) {
 }
 
 void Game::postDfs() {
-  (opened_block_count > 1 ? tiles_appearing : tile_opening).play();
+  PLAY_SOUND(opened_block_count > 1 ? tiles_appearing : tile_opening);
   if (checkWin()) {
     changeStatus(GameStatus::WIN);
   }

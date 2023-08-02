@@ -14,7 +14,7 @@ A Minesweeper game made in imitation of [Microsoft Minesweeper](https://www.msn.
 
 - Support "quick open" (through middle/double click)
 
-- <u>TODO</u>: Support Settings (Sound, Mine count, Mine style)
+- Support Settings (Sound, Mine count, Mine style)
 
 
 ## License

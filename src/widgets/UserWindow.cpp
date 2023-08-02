@@ -34,6 +34,11 @@ void UserWindow::onLogin() {
   auto account = account_input.text();
   auto password = password_input.text();
 
+  if (account.isEmpty()) {
+    QMessageBox::critical(this, "错误", "用户名不能为空");
+    return;
+  }
+
   auto user = manager->getUser(account);
 
   if (user) {

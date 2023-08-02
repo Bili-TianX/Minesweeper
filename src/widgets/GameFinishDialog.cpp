@@ -1,14 +1,16 @@
 #include "GameFinishDialog.h"
 
+#include "../core/Options.h"
+
 GameFinishDialog::GameFinishDialog(QWidget* parent, GameStatus status)
     : QDialog(parent) {
   setWindowTitle("游戏结束");
 
   if (status == GameStatus::WIN) {
-    MS_sting_win.play();
+    PLAY_SOUND(MS_sting_win);
     title_label.setText("<h2>你赢了</h2>");
   } else if (status == GameStatus::LOSE) {
-    MS_sting_lose.play();
+    PLAY_SOUND(MS_sting_lose);
     title_label.setText("<h2>你输了</h2>");
   }
 

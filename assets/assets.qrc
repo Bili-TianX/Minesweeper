@@ -1,7 +1,12 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
     <qresource>
-        <file>Darkeum.qss</file>
+        <file>QSS/MacOS.qss</file>
+        <file>QSS/QSS_IMG/go-down-symbolic.symbolic.png</file>
+        <file>QSS/QSS_IMG/go-next-symbolic.symbolic.png</file>
+        <file>QSS/QSS_IMG/go-previous-symbolic.symbolic.png</file>
+        <file>QSS/QSS_IMG/go-up-symbolic.symbolic.png</file>
+        <file>QSS/QSS_IMG/object-select-symbolic.symbolic.png</file>
 
         <!-- 图像资源 -->
         <file>images/icon.ico</file>
@@ -19,8 +24,16 @@
         <file>images/blocks/pressed.png</file>
         <file>images/blocks/flag.png</file>
         <file>images/blocks/question.png</file>
-        <file>images/blocks/mine.png</file>
         <file>images/blocks/exploded_mine.png</file>
+
+        <!-- 炸弹 -->
+        <file>images/blocks/mines/0.svg</file>
+        <file>images/blocks/mines/1.svg</file>
+        <file>images/blocks/mines/2.svg</file>
+        <file>images/blocks/mines/3.svg</file>
+        <file>images/blocks/mines/4.svg</file>
+        <file>images/blocks/mines/5.svg</file>
+        <file>images/blocks/mines/6.svg</file>
 
         <!-- 工具栏 -->
         <file>images/bar/bm_icon_options.png</file>

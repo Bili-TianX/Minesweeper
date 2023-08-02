@@ -11,6 +11,15 @@ GameWindow::GameWindow(Difficulty difficulty) : game(difficulty) {
 }
 
 void GameWindow::paintEvent(QPaintEvent* event) {
+#define DRAW_BLOCK_SIZED(image, width, height)                             \
+  painter.drawPixmap(                                                      \
+      x* BLOCK_PIXEL_WIDTH + (BLOCK_PIXEL_WIDTH - (width)) / 2,            \
+      y * BLOCK_PIXEL_HEIGHT + (BLOCK_PIXEL_HEIGHT - (height)) / 2, width, \
+      height, image)
+
+#define DRAW_BLOCK(image) \
+  DRAW_BLOCK_SIZED(image, BLOCK_PIXEL_WIDTH, BLOCK_PIXEL_HEIGHT)
+
   auto view = game.getView();
 
   QPainter painter(this);
@@ -19,9 +28,15 @@ void GameWindow::paintEvent(QPaintEvent* event) {
 
   for (int y = 0; y < view.size(); ++y) {
     for (int x = 0; x < view[y].size(); ++x) {
-      painter.drawPixmap(x * BLOCK_PIXEL_WIDTH, y * BLOCK_PIXEL_HEIGHT,
-                         BLOCK_PIXEL_WIDTH, BLOCK_PIXEL_HEIGHT,
-                         block_images[view[y][x]]);
+      auto block = view[y][x];
+
+      if (block == BlockType::MINE) {
+        DRAW_BLOCK(block_images[BlockType::CLOSED]);
+        DRAW_BLOCK_SIZED(OPTIONS->getMineImage(), MINE_PIXEL_WIDTH,
+                         MINE_PIXEL_HEIGHT);
+      } else {
+        DRAW_BLOCK(block_images[block]);
+      }
     }
   }
 
@@ -32,13 +47,12 @@ void GameWindow::paintEvent(QPaintEvent* event) {
           continue;
         }
 
-        auto x = button_x + dx, y = button_y + dy;
+        auto x = button_x + dx;
+        auto y = button_y + dy;
 
         if (game.getDifficulty().contains(x, y) &&
             game.getView()[y][x] == BlockType::CLOSED) {
-          painter.drawPixmap(x * BLOCK_PIXEL_WIDTH, y * BLOCK_PIXEL_HEIGHT,
-                             BLOCK_PIXEL_WIDTH, BLOCK_PIXEL_HEIGHT,
-                             block_images[BlockType::PRESSED]);
+          DRAW_BLOCK(block_images[BlockType::PRESSED]);
         }
       }
     }

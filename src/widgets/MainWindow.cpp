@@ -1,5 +1,7 @@
 #include "MainWindow.h"
 
+#include "OptionDialog.h"
+
 MainWindow::MainWindow(Difficulty difficulty) : game_window(difficulty) {
   setWindowTitle("扫雷");
 
@@ -50,5 +52,8 @@ void MainWindow::updateStatusBar() {
 }
 
 void MainWindow::onOptionButtonClicked() {
-  // TODO
+  OptionDialog dialog(this);
+  if (dialog.exec() == QDialog::Accepted) {
+    repaint();
+  }
 }

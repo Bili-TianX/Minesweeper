@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../core/Options.h"
 #include "BlockType.h"
 #include "Difficulty.h"
 #include "GameStatus.h"

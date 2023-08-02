@@ -2,6 +2,8 @@
 
 #include <QAction>
 #include <QApplication>
+#include <QCheckBox>
+#include <QComboBox>
 #include <QCursor>
 #include <QDebug>
 #include <QDialog>
@@ -11,21 +13,16 @@
 #include <QIcon>
 #include <QLabel>
 #include <QLineEdit>
-#include <QMainWindow>
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPixmap>
 #include <QPushButton>
-#include <QRandomGenerator64>
+#include <QSettings>
 #include <QSound>
-#include <QSql>
 #include <QSqlDatabase>
 #include <QSqlQuery>
-#include <QSqlResult>
-#include <QTime>
 #include <QTimer>
-#include <QToolBar>
 #include <QVBoxLayout>
 #include <QWidget>
 #include <Qt>

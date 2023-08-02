@@ -3,11 +3,13 @@
 #include "../game/Game.h"
 
 const int BLOCK_PIXEL_WIDTH = 64, BLOCK_PIXEL_HEIGHT = 64;
+const int MINE_PIXEL_WIDTH = BLOCK_PIXEL_WIDTH * 3 / 4,
+          MINE_PIXEL_HEIGHT = BLOCK_PIXEL_HEIGHT * 3 / 4;
 
 /**
  * @brief 游戏窗口
  */
-class GameWindow : public QMainWindow {
+class GameWindow : public QWidget {
   Q_OBJECT
 
  public:
@@ -29,8 +31,6 @@ class GameWindow : public QMainWindow {
   bool middle_button_pressed = false;
   int button_x = -1, button_y = -1;
 
-  // QTimer timer{this};
-
   // 图像资源
   QMap<BlockType, QPixmap> block_images = {
       {BlockType::ZERO, QPixmap(":/images/blocks/0.png")},
@@ -46,7 +46,6 @@ class GameWindow : public QMainWindow {
       {BlockType::PRESSED, QPixmap(":/images/blocks/pressed.png")},
       {BlockType::FLAG, QPixmap(":/images/blocks/flag.png")},
       {BlockType::QUESTION, QPixmap(":/images/blocks/question.png")},
-      {BlockType::MINE, QPixmap(":/images/blocks/mine.png")},
       {BlockType::EXPLODED_MINE, QPixmap(":/images/blocks/exploded_mine.png")},
   };
 
