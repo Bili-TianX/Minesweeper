@@ -1,0 +1,42 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>Darkeum.qss</file>
+
+        <!-- 图像资源 -->
+        <file>images/icon.ico</file>
+        <file>images/bgTile.jpg</file>
+        <file>images/blocks/0.png</file>
+        <file>images/blocks/1.png</file>
+        <file>images/blocks/2.png</file>
+        <file>images/blocks/3.png</file>
+        <file>images/blocks/4.png</file>
+        <file>images/blocks/5.png</file>
+        <file>images/blocks/6.png</file>
+        <file>images/blocks/7.png</file>
+        <file>images/blocks/8.png</file>
+        <file>images/blocks/closed.png</file>
+        <file>images/blocks/pressed.png</file>
+        <file>images/blocks/flag.png</file>
+        <file>images/blocks/question.png</file>
+        <file>images/blocks/mine.png</file>
+        <file>images/blocks/exploded_mine.png</file>
+
+        <!-- 工具栏 -->
+        <file>images/bar/bm_icon_options.png</file>
+        <file>images/bar/icon-mine.png</file>
+        <file>images/bar/icon-timer.png</file>
+
+        <!-- 声音资源 -->
+        <file>sounds/incorrect_quick_opening.wav</file>
+        <file>sounds/button_2.wav</file>
+        <file>sounds/MS_sting_win.wav</file>
+        <file>sounds/MS_sting_lose.wav</file>
+        <file>sounds/lightbulb_explosion.wav</file>
+        <file>sounds/tiles_appearing.wav</file>
+        <file>sounds/tile_opening.wav</file>
+        <file>sounds/setting_flag.wav</file>
+        <file>sounds/setting_question.wav</file>
+        <file>sounds/removing_question.wav</file>
+    </qresource>
+</RCC>

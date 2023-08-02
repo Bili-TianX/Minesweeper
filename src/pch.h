@@ -1,0 +1,32 @@
+#pragma once
+
+#include <QAction>
+#include <QApplication>
+#include <QCursor>
+#include <QDebug>
+#include <QDialog>
+#include <QFont>
+#include <QFormLayout>
+#include <QHBoxLayout>
+#include <QIcon>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMainWindow>
+#include <QMessageBox>
+#include <QMouseEvent>
+#include <QPainter>
+#include <QPixmap>
+#include <QPushButton>
+#include <QRandomGenerator64>
+#include <QSound>
+#include <QSql>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QTime>
+#include <QTimer>
+#include <QToolBar>
+#include <QVBoxLayout>
+#include <QWidget>
+#include <Qt>
+
+#include "stdc++.h"
