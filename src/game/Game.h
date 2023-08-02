@@ -15,12 +15,12 @@ class Game : public QObject {
 
   void click(Qt::MouseButton button, int x, int y, bool press = false);
 
-  [[nodiscard]] auto getElapsedTime() const -> const int;
+  [[nodiscard]] auto getElapsedTime() const -> int64_t;
   [[nodiscard]] auto getData() const -> const BlockMap&;
   [[nodiscard]] auto getView() const -> const BlockMap&;
-  [[nodiscard]] auto getStatus() const -> const GameStatus;
+  [[nodiscard]] auto getStatus() const -> GameStatus;
   [[nodiscard]] auto getDifficulty() const -> const Difficulty&;
-  [[nodiscard]] auto getRemainingMineCount() const -> const int;
+  [[nodiscard]] auto getRemainingMineCount() const -> int;
 
   void restartGame();
   void newGame();

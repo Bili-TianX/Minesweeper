@@ -81,7 +81,8 @@ void GameWindow::mousePressEvent(QMouseEvent* event) {
 }
 
 void GameWindow::mouseReleaseEvent(QMouseEvent* event) {
-  auto x = event->x() / BLOCK_PIXEL_WIDTH, y = event->y() / BLOCK_PIXEL_HEIGHT;
+  auto x = event->x() / BLOCK_PIXEL_WIDTH;
+  auto y = event->y() / BLOCK_PIXEL_HEIGHT;
 
   if (event->button() == Qt::MiddleButton) {
     middle_button_pressed = false;
@@ -94,7 +95,7 @@ void GameWindow::mouseReleaseEvent(QMouseEvent* event) {
 auto GameWindow::getGame() const -> const Game& { return game; }
 
 void GameWindow::onGameStatusChanged(GameStatus status) {
-  int delay;  // Wait sound
+  int delay{};  // Wait sound
 
   switch (status) {
     case GameStatus::WIN:

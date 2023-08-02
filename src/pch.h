@@ -22,6 +22,7 @@
 #include <QSql>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QSqlResult>
 #include <QTime>
 #include <QTimer>
 #include <QToolBar>

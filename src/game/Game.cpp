@@ -70,7 +70,8 @@ auto Game::countBlocksAround(int x, int y,
         continue;
       }
 
-      auto nx = x + dx, ny = y + dy;
+      auto nx = x + dx;
+      auto ny = y + dy;
 
       if (difficulty.contains(nx, ny) && predicate(nx, ny)) {
         ++sum;
@@ -110,7 +111,9 @@ void Game::click(Qt::MouseButton button, int x, int y, bool press) {
 }
 
 void Game::leftClick(int x, int y) {
-  if (view[y][x] != BlockType::CLOSED) return;
+  if (view[y][x] != BlockType::CLOSED) {
+    return;
+  }
 
   if (data[y][x] == BlockType::MINE) {
     revealMines();
@@ -251,17 +254,15 @@ void Game::revealMines() {
   }
 }
 
-auto Game::getElapsedTime() const -> const int {
+auto Game::getElapsedTime() const -> int64_t {
   return timer.getElapsedSeconds();
 }
 
 auto Game::getData() const -> const BlockMap& { return data; }
 auto Game::getView() const -> const BlockMap& { return view; }
-auto Game::getStatus() const -> const GameStatus { return status; }
+auto Game::getStatus() const -> GameStatus { return status; }
 auto Game::getDifficulty() const -> const Difficulty& { return difficulty; }
-auto Game::getRemainingMineCount() const -> const int {
-  return remaining_mines;
-}
+auto Game::getRemainingMineCount() const -> int { return remaining_mines; }
 
 void Game::restartGame() {
   init(false);

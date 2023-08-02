@@ -8,7 +8,7 @@ struct Difficulty {
   static const Difficulty MEDIUM;
   static const Difficulty EXPERT;
 
-  auto contains(int x, int y) const -> bool;
+  [[nodiscard]] auto contains(int x, int y) const -> bool;
 
-  auto blockCount() const -> int;
+  [[nodiscard]] auto blockCount() const -> int;
 };

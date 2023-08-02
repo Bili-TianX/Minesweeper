@@ -12,6 +12,6 @@ class Timer {
   [[nodiscard]] auto isRunning() const -> bool;
 
  private:
-  int64_t begin, end;
-  bool running;
+  int64_t begin{}, end{};
+  bool running{};
 };

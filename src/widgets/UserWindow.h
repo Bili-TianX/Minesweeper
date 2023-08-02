@@ -8,14 +8,10 @@ class UserWindow : public QDialog {
  public:
   UserWindow();
 
- private slots:
-
-  void onLogin();
-
-  void onRegister();
+  ~UserWindow() override;
 
  private:
-  UserManager manager;
+  UserManager *manager = new UserManager;
 
   QVBoxLayout widget_layout{this};
   QFormLayout form;
@@ -27,4 +23,10 @@ class UserWindow : public QDialog {
 
   QPushButton login_button{"登录", this}, register_button{"注册", this},
       exit_button{"退出", this};
+
+ private slots:
+
+  void onLogin();
+
+  void onRegister();
 };

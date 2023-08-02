@@ -41,7 +41,7 @@ MainWindow::MainWindow(Difficulty difficulty) : game_window(difficulty) {
 void MainWindow::updateStatusBar() {
   const Game& game = game_window.getGame();
 
-  const auto [min, sec] = std::div(game.getElapsedTime(), 60);
+  const auto [min, sec] = std::lldiv(game.getElapsedTime(), 60);
 
   timer_label.setText(QStringLiteral("%0:%1")
                           .arg(min, 2, 10, QLatin1Char('0'))

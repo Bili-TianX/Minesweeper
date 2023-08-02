@@ -28,11 +28,13 @@ UserWindow::UserWindow() {
   adjustSize();
 }
 
+UserWindow::~UserWindow() { delete manager; }
+
 void UserWindow::onLogin() {
   auto account = account_input.text();
   auto password = password_input.text();
 
-  auto user = manager.getUser(account);
+  auto user = manager->getUser(account);
 
   if (user) {
     if (password == user->password) {

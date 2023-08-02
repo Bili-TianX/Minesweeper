@@ -1,6 +1,6 @@
 #include "RegisterDialog.h"
 
-RegisterDialog::RegisterDialog(QWidget* parent, const UserManager& manager)
+RegisterDialog::RegisterDialog(QWidget* parent, UserManager* manager)
     : QDialog(parent), manager(manager) {
   setWindowTitle("注册");
 
@@ -41,11 +41,11 @@ void RegisterDialog::onConfirm() {
     return;
   }
 
-  auto user = manager.getUser(account);
+  auto user = manager->getUser(account);
 
   if (!user) {
     if (password == confirm_password) {
-      manager.addUser({password, account});
+      manager->addUser({account, password});
       accept();
     } else {
       QMessageBox::critical(this, "错误", "两次输入的密码不一致");

@@ -25,8 +25,8 @@ using BlockMap = std::vector<std::vector<BlockType>>;
 
 using BlockPredicate = std::function<bool(int, int)>;
 
-auto isHiddenBlock(BlockType type) -> bool;
+auto isHiddenBlock(BlockType block) -> bool;
 
-auto isNumberBlock(BlockType type) -> bool;
+auto isNumberBlock(BlockType block) -> bool;
 
-auto isPositiveNumberBlock(BlockType type) -> bool;
+auto isPositiveNumberBlock(BlockType block) -> bool;

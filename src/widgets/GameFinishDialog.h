@@ -8,7 +8,7 @@ class GameFinishDialog : public QDialog {
 
   explicit GameFinishDialog(QWidget* parent, GameStatus status);
 
-  [[nodiscard]] auto getResult() const -> const Result;
+  [[nodiscard]] auto getResult() const -> Result;
 
  private:
   void closeEvent(QCloseEvent* event) override;

@@ -1,4 +1,3 @@
-// #include "widgets/GameWindow.h"
 #include "widgets/MainWindow.h"
 #include "widgets/UserWindow.h"
 
@@ -17,9 +16,7 @@ auto main(int argc, char* argv[]) -> int {
     MainWindow w;
     w.show();
     return QApplication::exec();
-  } else {
-    return 0;
   }
 
-  return QApplication::exec();
+  return 0;
 }

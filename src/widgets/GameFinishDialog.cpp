@@ -37,7 +37,7 @@ GameFinishDialog::GameFinishDialog(QWidget* parent, GameStatus status)
   adjustSize();
 }
 
-auto GameFinishDialog::getResult() const -> const Result { return result; }
+auto GameFinishDialog::getResult() const -> Result { return result; }
 
 void GameFinishDialog::closeEvent(QCloseEvent* event) {
   if (QMessageBox::question(this, "确认", "是否要退出游戏？") ==

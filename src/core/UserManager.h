@@ -8,6 +8,8 @@ class UserManager {
  public:
   UserManager();
 
+  ~UserManager();
+
   [[nodiscard]] auto getUser(QStringView account) const -> std::optional<User>;
 
   void addUser(const User &user) const;

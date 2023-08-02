@@ -20,9 +20,9 @@ void Timer::reset() {
 auto Timer::getElapsedSeconds() const -> int64_t {
   if (running) {
     return time(nullptr) - begin;
-  } else {
-    return end - begin;
   }
+  
+  return end - begin;
 }
 
 auto Timer::isRunning() const -> bool { return running; }

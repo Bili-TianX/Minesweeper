@@ -5,10 +5,10 @@
 class RegisterDialog : public QDialog {
   Q_OBJECT
  public:
-  RegisterDialog(QWidget* parent, const UserManager& manager);
+  RegisterDialog(QWidget* parent, UserManager* manager);
 
  private:
-  UserManager manager;
+  UserManager* manager;
 
   QVBoxLayout widget_layout{this};
   QFormLayout form;
