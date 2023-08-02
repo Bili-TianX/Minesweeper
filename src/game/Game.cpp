@@ -4,6 +4,12 @@
 
 int opened_block_count = 0;
 
+#define GO_LOSE(i, j)                    \
+  revealMines();                         \
+  view[j][i] = BlockType::EXPLODED_MINE; \
+  PLAY_SOUND(lightbulb_explosion);       \
+  changeStatus(GameStatus::LOSE)
+
 Game::Game(Difficulty difficulty)
     : difficulty(difficulty),
       data(difficulty.height, std::vector<BlockType>(difficulty.width)),
@@ -118,10 +124,7 @@ void Game::leftClick(int x, int y) {
   }
 
   if (data[y][x] == BlockType::MINE) {
-    revealMines();
-    view[y][x] = BlockType::EXPLODED_MINE;
-    PLAY_SOUND(lightbulb_explosion);
-    changeStatus(GameStatus::LOSE);
+    GO_LOSE(x, y);
   } else {  // data[y][x] is a number
     opened_block_count = 0;
     dfs(x, y);
@@ -176,9 +179,18 @@ void Game::middleClick(int x, int y, bool press) {
         continue;
       }
 
-      dfs(x + dx, y + dy);
+      auto nx = x + dx;
+      auto ny = y + dy;
+
+      if (difficulty.contains(nx, ny) && data[ny][nx] == BlockType::MINE &&
+          view[ny][nx] == BlockType::CLOSED) {
+        GO_LOSE(nx, ny);
+        return;
+      }
+      dfs(nx, ny);
     }
   }
+
   if (opened_block_count == 0) {
     PLAY_SOUND(incorrect_quick_opening);
   } else {
