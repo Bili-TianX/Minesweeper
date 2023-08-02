@@ -16,6 +16,8 @@ A Minesweeper game made in imitation of [Microsoft Minesweeper](https://www.msn.
 
 - Support Settings (Sound, Mine count, Mine style)
 
+- MacOS-like UI (From [GTRONICK - QSS](https://github.com/GTRONICK/QSS))
+
 
 ## License
 
