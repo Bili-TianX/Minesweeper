@@ -18,7 +18,6 @@ A Minesweeper game made in imitation of [Microsoft Minesweeper](https://www.msn.
 
 - MacOS-like UI (From [GTRONICK - QSS](https://github.com/GTRONICK/QSS))
 
-
 ## License
 
 [AGPL-3.0](https://github.com/Bili-TianX/Minesweeper/blob/master/LICENSE)
